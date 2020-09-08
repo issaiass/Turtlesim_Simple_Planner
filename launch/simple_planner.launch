@@ -1,0 +1,75 @@
+<launch>
+  <!-- Turtlesim Node-->
+  <node name="tsim" pkg="turtlesim" type="turtlesim_node" />
+  
+  <!-- Simple Planner Nodes -->
+  <node name="planner_lt" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_lt 0 5.5 0">
+  </node>
+  <node name="planner_rt" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_rt 11 5.5 3.141592654">
+  </node> 
+  <node name="planner_up" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_up 5.5 11 -1.570796327">
+  </node>
+  <node name="planner_dn" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_dn 5.5 0 1.570796327">
+  </node>
+
+  <node name="planner_x" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_x 1 10 -0.707">
+  </node>
+  <node name="planner_y" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_y 10 1 2.27">
+  </node>
+  <node name="planner_z" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_z 10 10 2.35">
+  </node>
+  <node name="planner_w" pkg="turtlesim_simple_planner" type="simple_planner" output="screen"
+        args="turtle_w 1 1 0.707">
+  </node>    
+
+
+
+  <!-- Pose Broadcasters -->
+  <node name="turtle_lt_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_lt" />
+  </node>
+  <node name="turtle_rt_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_rt" />
+  </node>
+  <node name="turtle_up_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_up" />
+  </node>
+  <node name="turtle_dn_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_dn" />
+  </node> 
+
+  <node name="turtle_x_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_x" />
+  </node>
+  <node name="turtle_y_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_y" />
+  </node>
+  <node name="turtle_z_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_z" />
+  </node>
+  <node name="turtle_w_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
+    <param name="sdturtle" type="string" value="turtle_w" />
+  </node>      
+
+
+  <!-- Static Frames Broadcasters (Goals and default turtle location) -->
+  <node name="turtle_obstacle_broadcaster" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle1_fixed 5.5 5.5 0 0 0 0" />
+  <node name="turtle_lt_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_lt_goal 11 5.54 0 0 0 0" />
+  <node name="turtle_rt_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_rt_goal 0 5.54 0 0 0 0" />
+  <node name="turtle_up_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_up_goal 5.54 0 0 0 0 -1.570796327" />
+  <node name="turtle_dn_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_dn_goal 5.54 11 0 0 0 1.570796327" />
+
+
+  <node name="turtle_x_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_x_goal 10 1 0 0 0 0" />
+  <node name="turtle_y_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_y_goal 1 10 0 0 0 0" />
+  <node name="turtle_z_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_z_goal 1 1 0 0 0 0" />
+  <node name="turtle_w_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_w_goal 10 10 0 0 0 0" />  
+
+  </launch>
