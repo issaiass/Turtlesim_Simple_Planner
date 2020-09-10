@@ -16,20 +16,43 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_library(turtle 
+  STATIC
+  include/turtle/turtle.hpp
+  src/turtle/turtle.cpp
+)
+
+add_library(tf2_frame 
+  STATIC
+  include/tf2_broadcaster/frame/tf2_frame.hpp 
+  src/tf2_broadcaster/frame/tf2_frame.cpp 
+)
+
+add_library(pid 
+  STATIC
+  include/pid/pid.hpp 
+  src/pid/pid.cpp 
+)
+
+add_library(tf2_static
+  STATIC
+  include/tf2_broadcaster/static/tf2_static.hpp 
+  src/tf2_broadcaster/static/tf2_static.cpp 
+)
+
 add_executable(simple_planner src/simple_planner.cpp
-                              src/turtle/turtle.cpp
-                              src/tf2_broadcaster/frame/tf2_frame.cpp 
-                              src/pid/pid.cpp                             
 )
 
 add_executable(pose_broadcaster src/pose_broadcaster.cpp
 )
 
 add_executable(goal_broadcaster src/goal_broadcaster.cpp
-                                src/tf2_broadcaster/static/tf2_static.cpp
 )
 
-target_link_libraries(simple_planner
+target_link_libraries(simple_planner 
+  turtle 
+  tf2_frame
+  pid
   ${catkin_LIBRARIES}
 )
 
@@ -38,5 +61,6 @@ target_link_libraries(pose_broadcaster
 )
 
 target_link_libraries(goal_broadcaster
+  tf2_static
   ${catkin_LIBRARIES}
 )

@@ -3,17 +3,21 @@
 #include <pid/pid.hpp>
 #include <geometry_msgs/Twist.h>
 
+// Minimal obstacle distance and factor
 #define SP_OBS_MIN_D 2.5
 #define SP_MULT_D 0.6
 
+// PID Distance
 #define KDP 0.4 
 #define KDI 0.38
 #define KDD 0.056
 
+// PID Angle
 #define KAA 3.5
 #define KAI 0.25
 #define KAD 0.01
 
+// Rate and Buffer
 #define SP_NODE_RATE 10
 #define SP_CMD_VEL_BFR 10
 
@@ -26,8 +30,6 @@ int main(int argc, char **argv) {
   ros::NodeHandle n;
   vector<double> K_d{KDP, KDI, KDD}; // pid distance  
   vector<double> K_a{KAA, KAI, KAD}; // pid angle
-//  vector<double> K_d{0.4, 0.38, 0.056};
-//  vector<double> K_a{3.5, 0.25, 0.01};                           
   geometry_msgs::TransformStamped ts;   
   geometry_msgs::Twist vel_msg;
   ros::Publisher turtle_vel;
@@ -54,16 +56,29 @@ int main(int argc, char **argv) {
 
   turtle_vel = n.advertise<geometry_msgs::Twist>(sdturtle+"/cmd_vel", SP_CMD_VEL_BFR);
 
+
+  double dt;
+  ros::Time start = ros::Time::now();
+  ros::Time end = ros::Time::now() + ros::Duration(0.1);
+
   while(ros::ok()) {
     
     // move to goal
     ts = fb.lookup(sdturtle + "_goal", sdturtle);
-    vel_msg = controller.update(ts, 1.0/SP_NODE_RATE);
+
+    end = ros::Time::now();
+    dt = end.toSec() - start.toSec();
+    dt = dt < (1.0/SP_NODE_RATE)*(0.05)?1.0/SP_NODE_RATE:dt; // if the dt is 95% below 0.1 clip to 0.1
+
+    vel_msg = controller.update(ts, dt);
+    
+    start = ros::Time::now();
+
     vector<double> error = controller.getError();
     if (error[0] < 0.1 && error[2] < 0.1) { // if distance error and angle error 
       vel_msg.angular.z = 0;
       vel_msg.linear.x = 0;
-    } 
+    }
 
     // avoid obstacle
     vector<string> turtles{"turtle_lt", "turtle_rt", "turtle_up", "turtle_dn", "turtle1_fixed", "turtle_x", "turtle_y", "turtle_z", "turtle_w"};
