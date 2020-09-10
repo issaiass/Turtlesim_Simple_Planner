@@ -30,7 +30,6 @@
   </node>    
 
 
-
   <!-- Pose Broadcasters -->
   <node name="turtle_lt_broadcaster" pkg="turtlesim_simple_planner" type="pose_broadcaster" respawn="false" output="screen" >
     <param name="sdturtle" type="string" value="turtle_lt" />
@@ -59,13 +58,12 @@
   </node>      
 
 
-  <!-- Static Frames Broadcasters (Goals and default turtle location) -->
+  <!-- Static Frames Broadcasters (Goals and default turtle1 location) -->
   <node name="turtle_obstacle_broadcaster" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle1_fixed 5.5 5.5 0 0 0 0" />
   <node name="turtle_lt_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_lt_goal 11 5.54 0 0 0 0" />
   <node name="turtle_rt_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_rt_goal 0 5.54 0 0 0 0" />
   <node name="turtle_up_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_up_goal 5.54 0 0 0 0 -1.570796327" />
   <node name="turtle_dn_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_dn_goal 5.54 11 0 0 0 1.570796327" />
-
 
   <node name="turtle_x_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_x_goal 10 1 0 0 0 0" />
   <node name="turtle_y_static_goal" pkg="turtlesim_simple_planner" type="goal_broadcaster" args="turtle_y_goal 1 10 0 0 0 0" />
