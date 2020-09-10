@@ -142,7 +142,7 @@ I will try my best for making an explanatory video of the application as in this
 
 <p align="center">
 
-[<img src= "" />]()
+[<img src= "https://img.youtube.com/vi/lg0QJUmUrW0/0.jpg" />](https://youtu.be/lg0QJUmUrW0)
 
 </p>
 
