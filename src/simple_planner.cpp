@@ -28,15 +28,15 @@
 #include <tf2_broadcaster/frame/tf2_frame.hpp> // the pose lookup
 #include <pid/pid.hpp>                         // the PID library
 
-// Minimal obstacle distance and factor
-#define SP_OBS_MIN_D 2.5
-#define SP_MULT_D 0.6
-
 /*
 *******************************************************************************
 *                              CONSTANT DEFINITIONS
 *******************************************************************************
 */
+
+// Minimal obstacle distance and factor
+#define SP_OBS_MIN_D 2.5
+#define SP_MULT_D 0.6
 
 // PID Distance
 #define KDP 0.4 
@@ -59,7 +59,6 @@
 */
 
 double distance(geometry_msgs::TransformStamped ts);
-
 
 /*
 *******************************************************************************

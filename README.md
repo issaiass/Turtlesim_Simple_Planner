@@ -5,35 +5,28 @@
 Note that the preffered language of this tutorial is using 
 <img src="https://img.shields.io/badge/-C++-0390fc?style=for-the-badge&logo=c&logoColor=white&labelColor=4B8BBE" />
 
-<br></br>
 <p align="center">
-<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/planner.GIF?raw=true" width="60%"/>
+<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/planner.GIF?raw=true" width="45%"/>
 </p>
-<br></br>
 
 The project tree:
 
-<br></br>
 <p align="center">
-<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/tree.PNG?raw=true" width="50%"/>
+<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/tree.PNG?raw=true" width="30%"/>
 </p>
-<br></br>
 
 The rqt graph (3 turtles for simplicity):
 
-<br></br>
 <p align="center">
-<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/simple_planner_3turtles_graph.PNG?raw=true" width="50%"/>
+<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/simple_planner_3turtles_graph.PNG?raw=true" width="75%"/>
 </p>
-<br></br>
 
 The tf tree (3 turtles for simplicity):
 
-<br></br>
+
 <p align="center">
-<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/simple_planner_3turtles_tf.PNG?raw=true" width="50%"/>
+<img src = "https://github.com/issaiass/Turtlesim_Simple_Planner/blob/master/imgs/simple_planner_3turtles_tf.PNG?raw=true" width="80%"/>
 </p>
-<br></br>
 
 A turtlesim program that will try to avoid each turtle in the field. 
 
